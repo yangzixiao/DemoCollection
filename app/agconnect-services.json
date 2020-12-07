@@ -1,0 +1,14 @@
+{
+	"client":{
+		"appType":"1",
+		"cp_id":"2850086000434918576",
+		"product_id":"736430079244718933",
+		"client_id":"505457541229064576",
+		"client_secret":"3CC8F0AC676A7FE9736B95F1B795BCEA30811449564C408943A7B452FF061DFB",
+		"project_id":"736430079244718933",
+		"app_id":"103374111",
+		"api_key":"CgB6e3x93zRO6SqNYY/JNNsAzKbwjlDsxtZi3dzwR87FuPCcIcGU+IlFcWuHvjycksr8AcyGnOTOtiD50c+7qNBp",
+		"package_name":"com.yzx.democollection"
+	},
+	"configuration_version":"1.0"
+}

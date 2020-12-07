@@ -7,22 +7,33 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemChildClickListener
 import com.yzx.democollection.adapter.MainAdapter
 import com.yzx.democollection.databinding.ActivityMainBinding
 import com.yzx.democollection.ui.bottomnavigationview.BottomNavigationViewActivity
+import com.yzx.democollection.ui.livedata.LiveDataActivity
+import com.yzx.democollection.ui.livedata.LiveDataInstance
 import com.yzx.democollection.ui.search.SearchActivity
 import com.yzx.lib_core.utils.AndroidVersion
+import com.yzx.lib_scan.ScanActivity
+import com.yzx.lib_scan.ScanActivity.Companion.SCAN_RESULT
 
 class MainActivity : AppCompatActivity(), OnItemChildClickListener {
 
-    private val titles = mutableListOf("BottomNavigationView")
-    private val activities = mutableListOf(BottomNavigationViewActivity::class.java)
+    companion object {
+        const val REQUEST_CODE_SCAN = 1
+    }
+
+    private val titles = mutableListOf("BottomNavigationView", "扫码服务","LiveData")
+    private val activities =
+        mutableListOf(BottomNavigationViewActivity::class.java, ScanActivity::class.java,LiveDataActivity::class.java)
 
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(null)
+        LiveDataInstance.unPeekLiveData.value="hhh"
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
@@ -37,7 +48,12 @@ class MainActivity : AppCompatActivity(), OnItemChildClickListener {
     override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>, view: View, position: Int) {
         when (view.id) {
             R.id.tvTitle -> {
-                startActivity(Intent(this@MainActivity, activities[position]))
+                val intent = Intent(this@MainActivity, activities[position])
+                if (position == 1) {
+                    startActivityForResult(intent, REQUEST_CODE_SCAN)
+                } else {
+                    startActivity(intent)
+                }
             }
         }
     }
@@ -64,5 +80,15 @@ class MainActivity : AppCompatActivity(), OnItemChildClickListener {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode != RESULT_OK) {
+            return
+        }
+        if (requestCode == REQUEST_CODE_SCAN) {
+            Toast.makeText(this,  "扫码结果：${data?.getStringExtra(SCAN_RESULT)}", Toast.LENGTH_SHORT).show()
+        }
     }
 }

@@ -1,2 +1,4 @@
+include ':lib_permissionx'
+include ':lib_scan'
 include ':app'
 rootProject.name = "DemoCollection"
