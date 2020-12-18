@@ -40,4 +40,15 @@
         <item name="android:windowSharedElementReturnTransition">@transition/search_shared_return</item>
         <item name="android:windowSharedElementsUseOverlay">true</item>
     </style>
+
+
+    <style name="Chip.Choice" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:checkable">true</item>
+        <item name="chipIconVisible">false</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="chipBackgroundColor">@color/bottom_nav_view_state_color</item>
+    </style>
+
 </resources>

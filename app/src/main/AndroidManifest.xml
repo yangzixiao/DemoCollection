@@ -34,6 +34,10 @@
         <activity
             android:name=".ui.livedata.LiveDataActivity"
             android:label="LiveDataActivity" />
+        <activity android:name=".ui.badgedrawable.BadgeDrawableActivity" />
+        <activity android:name=".ui.trend.TrendActivity" />
+        <activity android:name=".ui.trend.trend2.lottery.LottoTrendActivity" />
+        <activity android:name=".ui.chip.ChipActivity" />
     </application>
 
 </manifest>

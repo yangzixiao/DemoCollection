@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:text="111"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.yzx.democollection.ui.chip.CircleChip
+        android:id="@+id/circleChip"
+        style="@style/Chip.Choice"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:checked="true"
+        android:cursorVisible="false"
+        android:drawablePadding="0dp"
+        android:lines="1"
+        android:maxLength="3"
+        android:text="090ddddd"
+        android:textColor="@android:color/transparent"
+        android:textSize="10sp"
+        app:checkedIconVisible="false"
+        app:chipIconVisible="false"
+        app:closeIconVisible="false"
+        app:layout_constraintEnd_toEndOf="@+id/chip"
+        app:layout_constraintStart_toStartOf="@+id/chip"
+        app:layout_constraintTop_toBottomOf="@+id/chip" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
